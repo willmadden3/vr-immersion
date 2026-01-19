@@ -1,0 +1,37 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if using for tooling)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Arduino
+*.elf
+*.hex
+*.bin
+
+# Unreal Engine (add specific paths when UE project is created)
+# Binaries/
+# Intermediate/
+# Saved/
+# DerivedDataCache/
+
+# Build outputs
+build/
+dist/
+
+# Sensitive
+*.env
+secrets.h
