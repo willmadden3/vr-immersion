@@ -112,21 +112,38 @@ Questions:
 ### Open Questions for Research Session
 
 1. **Airflow requirements**: How much CFM/LPM actually needed to deliver scent? Does current pump provide enough for 6-10 channels?
+   - *Action*: Measure current pump output using bag displacement method (see below)
 
 2. **Channel count**: Design for how many scents?
-   - Minimum: 5-6 (ocean, sulfur, earth, forest, flowers, unscented bypass)
-   - Stretch: 10+ (multiple flower types, food smells for tavern, etc.)
+   - **ANSWERED**: Start with 6 channels for prototype
+   - Scale to 20 ± for early post-prototype versions
+   - Long-term vision: 100+ channels ("scent printer" capability)
+   - *Implication*: Need modular, compact solutions. Valve manifolds preferred over individual valves. Size-per-channel is critical metric.
 
 3. **Form factor**: 
-   - Stationary unit near play area?
-   - Wearable/backpack?
-   - Hybrid (pump stationary, delivery wearable)?
+   - **ANSWERED**: Wearable preferred
+   - Stationary creates tethering, tangle, latency, and presence-breaking hose
+   - Wearable challenges: weight, noise near ears, heat, refilling
+   - *Possible stepping stone*: Pump mounted on walking pad frame with short coiled hose
 
 4. **Sourcing preferences**:
    - Amazon (fast, easy returns)?
    - McMaster-Carr (industrial quality, good specs)?
    - AliExpress (cheap, slow)?
    - Specialty pneumatic suppliers?
+
+### How to Measure Pump Output (LPM)
+
+Simple bag displacement method:
+1. Get a plastic bag (gallon ziploc ≈ 3.8 liters) or balloon
+2. Empty it completely
+3. Connect pump output to bag opening
+4. Time how long to fill
+5. Calculate: `Volume (L) / Time (seconds) × 60 = LPM`
+
+Example: 3.8L bag fills in 10 seconds → 3.8/10 × 60 = **22.8 LPM**
+
+For more precision: submerge tube in water bucket, measure displaced water volume over time.
 
 ---
 
@@ -142,9 +159,8 @@ Questions:
 
 ### For Human (Between Sessions, If Time)
 
-- [ ] Consider: How many scent channels for v2?
-- [ ] Consider: Stationary vs wearable preference?
-- [ ] Optional: Measure current pump output (LPM) if easy to do
+- [ ] Measure current pump output (LPM) using bag method—see instructions above
+- [ ] Consider sourcing preferences (Amazon vs McMaster-Carr vs AliExpress)
 
 ---
 
