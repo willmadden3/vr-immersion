@@ -100,14 +100,69 @@ Design requirements:
 
 **Tool:** OpenSCAD (code-based, parametric, version-controllable)
 
-### Pump Considerations
+### Current Pump Specifications
 
-Current: 12V air pump (adequate)
+**SparkFun Vacuum Pump - 12V (ROB-10398)**
 
-Questions:
-- [ ] Noise level acceptable?
-- [ ] Flow rate sufficient for multi-channel?
-- [ ] Quieter alternatives?
+| Spec | Value | Notes |
+|------|-------|-------|
+| Type | Diaphragm | Oil-free, good for intermittent use |
+| Voltage | 12V | |
+| Power | 12W | |
+| Flow Rate | 9-15 LPM | Sufficient for 6-20 channels |
+| Vacuum | >350 mmHg | |
+| Working Pressure | -70 to 220 kPa | |
+| Noise | 65 dB | Conversation-level; may be issue for wearable |
+| Lifespan | 1000 hours | ~500 days at 2hr/day |
+| Ports | 1/4" barbs | Suggests 1/4" tubing ecosystem |
+| Price | $25.50 | |
+
+**Assessment:**
+- Flow rate adequate for current channel targets (6 → 20)
+- Noise is a concern for wearable form factor—may need quieter alternative
+- 1/4" barbs suggest staying in 1/4" tubing ecosystem
+- Lifespan acceptable for prototyping; production may need upgrade
+
+---
+
+## Scaling Challenges
+
+### Latency Scaling Problem
+
+As channel count increases, **scent delivery latency increases** due to longer air paths.
+
+**The physics:**
+- Air travels: pump → valve → chamber → merge manifold → output tube → nose
+- More channels = more branching, longer/more complex merge points
+- Total path length scales with number of channels
+
+**Scaling behavior:**
+- Best case (perfect binary tree): O(log n)
+- Realistic physical layouts: likely O(√n) or worse
+- Linear manifold (chambers in a row): O(n) for furthest chamber
+
+**Why it matters:**
+- If latency grows significantly, user sees the campfire before smelling it
+- Sensory mismatch breaks immersion
+- Violates "transitions are the magic" principle—timing is critical
+
+**Example concern:**
+- At 6 channels: ~200ms latency (acceptable)
+- At 100 channels: ~800ms+ latency (immersion-breaking?)
+- These numbers are hypothetical—actual measurement needed
+
+**Potential mitigations:**
+1. **Higher flow rate / pressure** - Faster transit, but more noise and power
+2. **Shorter, fatter tubing** - Less resistance
+3. **Decentralized architecture** - Multiple small manifolds (e.g., 10 channels each) instead of one large one
+4. **Pre-pressurized chambers** - "Spritz" approach: chamber holds pressurized scented air, valve releases burst
+5. **Predictive triggering** - Software fires scent slightly *before* user reaches zone (based on trajectory)
+6. **Parallel output paths** - Multiple tubes to nose area, each serving a subset of scents
+
+**Research needed:**
+- [ ] Measure actual latency on current 3-channel prototype
+- [ ] Model latency vs. channel count for different manifold geometries
+- [ ] Investigate "spritz" vs. continuous flow architectures
 
 ### Open Questions for Research Session
 
@@ -156,10 +211,12 @@ For more precision: submerge tube in water bucket, measure displaced water volum
 - [ ] Claude: Research small pneumatic manifolds
 - [ ] Claude: Draft initial BOM for "test kit" (~$30-50 to validate ecosystem)
 - [ ] Claude: Design parametric smell chamber in OpenSCAD (ready to print once tubing size decided)
+- [ ] Claude: Research quieter pump alternatives for wearable form factor
 
 ### For Human (Between Sessions, If Time)
 
 - [ ] Measure current pump output (LPM) using bag method—see instructions above
+- [ ] Measure scent latency on current prototype (time from valve-on to smell-at-nose)
 - [ ] Consider sourcing preferences (Amazon vs McMaster-Carr vs AliExpress)
 
 ---
