@@ -164,6 +164,51 @@ As channel count increases, **scent delivery latency increases** due to longer a
 - [ ] Model latency vs. channel count for different manifold geometries
 - [ ] Investigate "spritz" vs. continuous flow architectures
 
+---
+
+### Future Concept: Double-Buffered Pneumatics
+
+> *"Like double-buffering for scented air—prepare invisibly, swap instantly."*
+
+**The problem:** As channel count grows, latency from valve-on to scent-at-nose increases due to longer air paths.
+
+**The concept:** Two parallel outlet paths with a branch point near the nose:
+
+```
+                                         ┌─→ [NOSE outlet]
+[Pump] → [Valves] → [Chambers] → ────────┤
+                                         └─→ [DUMP outlet] (away from nose)
+```
+
+**Delivery sequence:**
+1. **Preload phase** (predictive, as user approaches zone):
+   - High-pressure burst through target scent chamber
+   - Routes to DUMP outlet (vents away from user)
+   - Scented air fills tubing up to branch point
+   - User perceives nothing
+
+2. **Delivery phase** (when user enters zone):
+   - Switch to NOSE outlet at normal pressure
+   - Scented air already staged inches from nose
+   - Perceived latency: near-zero
+
+**Key design points:**
+- Dump outlet must vent *away* from nose (not just filtered)
+- Dump tubing can loop back and exit anywhere (e.g., near pump/valve assembly)
+- Dump output must NOT feed back into pump inlet (no scent recycling)
+- High-pressure preload is brief and within safe ranges
+- Enables predictive triggering based on user trajectory
+
+**Analogy:** Like UI double-buffering, where the next frame is rendered off-screen and swapped in when ready. Here, the next scent is "rendered" (staged in tubing) off-nose and "swapped in" (outlet switch) when needed.
+
+**Benefits:**
+- Decouples transport time from delivery time
+- Works regardless of manifold complexity
+- Preload can happen during user's approach (seconds of lead time)
+- Maintains immersion even at high channel counts
+
+**Status:** Future R&D concept—not for initial prototype
+
 ### Open Questions for Research Session
 
 1. **Airflow requirements**: How much CFM/LPM actually needed to deliver scent? Does current pump provide enough for 6-10 channels?
