@@ -1,6 +1,7 @@
 # Project Overview - VR Immersion System
 
 > **Context file for AI-assisted development sessions**
+> **Project Lead:** Will
 > Last updated: January 2025
 
 ## Grand Vision

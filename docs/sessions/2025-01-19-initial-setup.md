@@ -2,7 +2,7 @@
 
 **Date:** January 19, 2025 (Sunday)  
 **Duration:** ~1.5 hours  
-**Participants:** Human + Claude (Opus 4.5)
+**Participants:** Will + Claude (Opus 4.5)
 
 ---
 
@@ -18,7 +18,7 @@
 
 ### 1. Project Introduction
 
-Human shared the grand vision: a fully immersive VR experience on a virtual island with multiple environments (cave, beach, volcanic caldera, forest, dock, abandoned temple). Each location delivers distinct sensory experiences beyond just visuals and audio—including smell, temperature, and wind.
+Will shared the grand vision: a fully immersive VR experience on a virtual island with multiple environments (cave, beach, volcanic caldera, forest, dock, abandoned temple). Each location delivers distinct sensory experiences beyond just visuals and audio—including smell, temperature, and wind.
 
 **Key insight established:** The magic is in the *transitions* between environments, not maintaining steady states. A 10-20 second sensory shift is what creates immersion.
 
@@ -32,7 +32,7 @@ Three core principles emerged from discussion:
 
 ### 3. VR Smell Prototype Review
 
-Human shared annotated photo of current prototype. Components identified:
+Will shared annotated photo of current prototype. Components identified:
 - Arduino with WiFi (HTTP server receiving commands from Unreal Engine)
 - 12V air pump (always running)
 - 12V electric solenoid valves (3 channels: unscented, campfire, lavender)
@@ -46,10 +46,10 @@ Human shared annotated photo of current prototype. Components identified:
 ### 4. Collaboration Model Discussion
 
 Established division of labor for AI-first development:
-- **Human:** Physical assembly, soldering, testing, purchasing, 3D printing
+- **Will:** Physical assembly, soldering, testing, purchasing, 3D printing
 - **Claude:** Code, schematics, CAD designs, documentation, research, BOMs
 
-Human noted they work on projects weekends only (IP considerations with day job).
+Will noted he works on projects weekends only (IP considerations with day job).
 
 ### 5. Parts Research Framework
 
@@ -65,7 +65,7 @@ Discussed approach for VR Smell v2:
 
 ### 6. Pump Specifications
 
-Human provided SparkFun pump link. Specs documented:
+Will provided SparkFun pump link. Specs documented:
 - Model: ROB-10398 (12V diaphragm pump)
 - Flow rate: 9-15 LPM (sufficient for 6-20 channels)
 - Noise: 65 dB (concern for wearable)
@@ -74,13 +74,13 @@ Human provided SparkFun pump link. Specs documented:
 
 ### 7. Scaling Challenges Identified
 
-Human raised latency scaling problem: as channel count grows, air path length increases, causing delay between valve-on and smell-at-nose. This could break immersion at high channel counts.
+Will raised latency scaling problem: as channel count grows, air path length increases, causing delay between valve-on and smell-at-nose. This could break immersion at high channel counts.
 
 **Scaling behavior:** Likely O(√n) or worse depending on manifold geometry.
 
 ### 8. Double-Buffered Pneumatics Concept
 
-Human proposed clever mitigation (for future, not initial prototype):
+Will proposed clever mitigation (for future, not initial prototype):
 
 Two parallel outlet paths with branch near nose:
 1. **Preload phase:** High-pressure burst through target chamber → DUMP outlet (away from nose)
@@ -138,7 +138,7 @@ vr-immersion/
 - [ ] Design parametric smell chamber in OpenSCAD
 - [ ] Research quieter pump alternatives for wearable
 
-### For Human (Between Sessions)
+### For Will (Between Sessions)
 - [ ] Measure scent latency on current prototype (stopwatch: valve-on to smell-at-nose)
 - [ ] Consider sourcing preferences (Amazon vs McMaster-Carr vs AliExpress)
 - [ ] Optional: Measure pump output using bag displacement method
@@ -159,11 +159,11 @@ vr-immersion/
 
 ## Notes for Future Sessions
 
-- Human prefers short, focused sessions with thorough documentation
+- Will prefers short, focused sessions with thorough documentation
 - Context files are the source of truth—always update them
 - Session transcripts help track evolution of ideas over time
-- Human works weekends only (IP considerations)
-- Neighbor (mechanic) may join project later—documentation enables this
+- Will works weekends only (IP considerations)
+- Will's neighbor (mechanic) may join project later—documentation enables this
 
 ---
 

@@ -1,6 +1,7 @@
 # Collaboration Workflow & Parts Research
 
 > **Context file for AI-assisted development sessions**
+> **Project Lead:** Will
 > Last updated: January 2025
 
 ## Collaboration Model

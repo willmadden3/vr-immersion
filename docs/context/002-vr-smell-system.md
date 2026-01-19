@@ -1,6 +1,7 @@
 # VR Smell System - Technical Context
 
 > **Context file for AI-assisted development sessions**
+> **Project Lead:** Will
 > Last updated: January 2025
 
 ## System Overview
